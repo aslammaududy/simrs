@@ -9,6 +9,7 @@ return new class extends Migration {
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->string('ihs');
             $table->string('medical_record_number');
             $table->string('name');
             $table->string('nik');
