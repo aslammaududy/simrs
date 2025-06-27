@@ -2,6 +2,7 @@
 
 use App\Models\Patient;
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Illuminate\Testing\Fluent\AssertableJson;
 
 uses(RefreshDatabase::class);
 
@@ -22,3 +23,23 @@ it('can create a new patient')
         return $this->post('api/patients', $patients);
     })
     ->assertStatus(201);
+
+it('can update a patient')
+    ->with('users', 'patients')
+    ->expect(function ($users, $patients) {
+        $registration_staff = \App\Models\User::create($users);
+        $this->actingAs($registration_staff);
+        $patient = Patient::create($patients);
+        $updated_data = array_merge($patients, ['name' => 'updated name']);
+        return $this->putJson('api/patients/' . $patient["id"], $updated_data);
+    })->assertStatus(200)
+    ->assertJson(['data' => ['name' => 'updated name']]);
+
+it('can delete a patient')
+    ->with('users', 'patients')
+    ->expect(function ($users, $patients) {
+        $registration_staff = \App\Models\User::create($users);
+        $this->actingAs($registration_staff);
+        $patient = Patient::create($patients);
+        return $this->deleteJson('api/patients/' . $patient["id"]);
+    })->assertStatus(200);
