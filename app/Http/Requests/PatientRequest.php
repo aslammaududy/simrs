@@ -9,7 +9,6 @@ class PatientRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'medical_record_number' => ['required'],
             'name' => ['required'],
             'nik' => ['required'],
             'bpjs_number' => ['required'],
