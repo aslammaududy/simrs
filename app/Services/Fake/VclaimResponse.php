@@ -4,7 +4,7 @@ namespace App\Services\Fake;
 
 class VclaimResponse
 {
-    public function fromBPJSNumber(): array
+    public function fromParticipantNumber(): array
     {
         return [
             'metaData' => [

@@ -9,6 +9,6 @@ class VclaimResponseController extends Controller
 {
     public function __invoke()
     {
-        return VclaimResponse::fromBPJSNumber();
+        return VclaimResponse::fromParticipantNumber();
     }
 }
