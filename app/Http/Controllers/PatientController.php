@@ -53,7 +53,7 @@ class PatientController extends Controller
     {
         $this->authorize('delete', $patient);
 
-        $patient->delete();
+        $this->patientService->deletePatient($patient);
 
         return response()->json();
     }
