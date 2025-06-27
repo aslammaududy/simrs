@@ -8,4 +8,5 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 
+Route::get('vclaim/response', \App\Http\Controllers\Fake\VclaimResponseController::class);
 Route::apiResource('patients', PatientController::class);
