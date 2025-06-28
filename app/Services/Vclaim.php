@@ -8,7 +8,6 @@ use Illuminate\Support\Facades\Http;
 class Vclaim
 {
     private PendingRequest $vclaim;
-    private array $headers;
 
     public function __construct()
     {
