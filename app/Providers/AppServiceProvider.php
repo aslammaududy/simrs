@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\Services\Fake\VclaimResponse;
+use App\Services\Vclaim;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -12,7 +12,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton('vclaimResponse', fn() => new VclaimResponse());
+        $this->app->singleton('vclaim', fn() => new Vclaim());
     }
 
     /**

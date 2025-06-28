@@ -5,12 +5,12 @@ namespace App\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @see \App\Services\Fake\VclaimResponse
+ * @see \App\Services\Vclaim
  */
-class VclaimResponse extends Facade
+class Vclaim extends Facade
 {
     protected static function getFacadeAccessor(): string
     {
-        return 'vclaimResponse';
+        return 'vclaim';
     }
 }
