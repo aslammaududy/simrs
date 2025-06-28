@@ -15,9 +15,9 @@ class Vclaim
         $this->setHeaders();
     }
 
-    private function setHeaders(): array
+    private function setHeaders(): void
     {
-        return $this->vclaim->withHeaders([
+         $this->vclaim->withHeaders([
             'X-cons-id' => config('services.vclaim.consumer_id'),
             'X-timestamp' => now()->timestamp,
             'X-signature' => $this->generateSignature(),
