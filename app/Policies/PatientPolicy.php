@@ -12,36 +12,36 @@ class PatientPolicy
 
     public function viewAny(User $user): bool
     {
-        return true;
+        return in_array($user->role, ['admin', 'registration_staff']);
     }
 
     public function view(User $user, Patient $patient): bool
     {
-        return true;
+        return in_array($user->role, ['admin', 'registration_staff']);
     }
 
     public function create(User $user): bool
     {
-        return true;
+        return in_array($user->role, ['admin', 'registration_staff']);
     }
 
     public function update(User $user, Patient $patient): bool
     {
-        return true;
+        return in_array($user->role, ['admin', 'registration_staff']);
     }
 
     public function delete(User $user, Patient $patient): bool
     {
-        return true;
+        return $user->role === 'admin';
     }
 
     public function restore(User $user, Patient $patient): bool
     {
-        return true;
+        return $user->role === 'admin';
     }
 
     public function forceDelete(User $user, Patient $patient): bool
     {
-        return true;
+        return $user->role === 'admin';
     }
 }
